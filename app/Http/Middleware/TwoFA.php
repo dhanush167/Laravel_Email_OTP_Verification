@@ -15,6 +15,9 @@ class TwoFA
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (auth()->user()->isVerified) {
+            return $next($request);
+        }
+        return redirect('/');
     }
 }
