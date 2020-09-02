@@ -27,3 +27,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 php artisan make:middleware TwoFA
 
 ```
+
+```
+
+php artisan make:mail OTPMail --markdown=OTP
+
+```
