@@ -39,10 +39,17 @@ class LoginController extends Controller
      */
     protected function attemptLogin(Request $request)
     {
-        Mail::send(new OTPMail);
-        return $this->guard()->attempt(
+
+        $result = $this->guard()->attempt(
             $this->credentials($request), $request->filled('remember')
         );
+
+        if ($result){
+            Mail::send(new OTPMail);
+        }
+
+        return $result;
+
     }
 
 
