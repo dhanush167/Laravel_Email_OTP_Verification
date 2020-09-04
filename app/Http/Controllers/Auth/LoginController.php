@@ -45,7 +45,8 @@ class LoginController extends Controller
         );
 
         if ($result){
-            Mail::send(new OTPMail);
+            $OTP = rand(100000,999999);
+            Mail::to('dhanushka@gmail.com')->send(new OTPMail($OTP));
         }
 
         return $result;
