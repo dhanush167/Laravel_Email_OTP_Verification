@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
+Route::get('/verifyOTP','VerifyOTPController@showVerifyPage');
 Route::post('/verifyOTP','VerifyOTPController@verify');
 
 
